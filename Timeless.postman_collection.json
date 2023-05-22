@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "a10664c1-ca60-40a3-bcb2-3c33f092521c",
+		"name": "Timeless",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "oAuth token client_credentials",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_auth}}oauth/token",
+					"host": [
+						"{{host_auth}}oauth"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment/Transactions/TransId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}Payment/Transactions?q=trans_id:123456",
+					"host": [
+						"{{host}}Payment"
+					],
+					"path": [
+						"Transactions"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "trans_id:123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment/Transactions/Transhash",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}Payment/Transactions?q=transaction_hash:zomuthejbdtb7201359",
+					"host": [
+						"{{host}}Payment"
+					],
+					"path": [
+						"Transactions"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "transaction_hash:zomuthejbdtb7201359"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment/Transactions/PCI",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}Payment/Transactions/PCI_XYZ",
+					"host": [
+						"{{host}}Payment"
+					],
+					"path": [
+						"Transactions",
+						"PCI_XYZ"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
